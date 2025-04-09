@@ -40,3 +40,47 @@
   background: rgba(0,0,0,0.5);
   color: #fff;
 }
+
+.language-selector {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.language-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.language-icon img {
+/*  filter: brightness(0) invert(1); */
+  width: 32px;
+  height: 32px;
+}
+
+.language-menu {
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  position: absolute;
+  right: 0;
+  top: 40px;
+  list-style: none;
+  z-index: 1001;
+}
+
+.language-menu li {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.language-menu li img {
+  width: 24px;
+  margin-right: 8px;
+}
+

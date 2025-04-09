@@ -1,9 +1,9 @@
 /* Genel Sayfa Stili */
-body, html {
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  background: none !important;
-  background-color: #f8f8f8;
+  overflow-y: auto;
 }
   
   /* Menü Butonu Stili */

@@ -1,8 +1,10 @@
+
 .global-frame {
-  position: relative;
-  text-align: center;
-  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
 
 .arka-plan {
   width: 100%;

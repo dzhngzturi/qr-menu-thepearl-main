@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LanguageService } from '../../language.service';
 
 
 @Component({
@@ -11,37 +12,57 @@ import { Router } from '@angular/router';
   imports: [CommonModule]
 })
 export class MenuComponent implements OnInit{
+  lang: string = 'tr';
   menuVerileri: any[] = [];
-  seciliKategori: any = null;
-  seciliUrun: any = null;
+  showLanguageMenu: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public langService: LanguageService) {}
 
   ngOnInit(): void {
+    const lang = this.langService.getLanguage();
+    this.lang = lang
     this.menuVerileri = [
       {
-        kategori: 'Salatalar',
-        resim: 'salata.jpg'
+        kategori: lang === 'en' ? 'Salads' : lang === 'bg' ? 'Салати' : 'Salatalar',
+        resim: 'salata.jpg',
       },
       {
-         kategori: 'Salatalar',
-        resim: 'salata.jpg'
+        kategori: lang === 'en' ? 'Appetizers' : lang === 'bg' ? 'Предястия' : 'Başlangıçlar',
+        resim: 'salata.jpg',
       },
       {
-         kategori: 'Salatalar',
-        resim: 'salata.jpg'
+        kategori: lang === 'en' ? 'Burgers' : lang === 'bg' ? 'Бургери' : 'Burgerler',
+        resim: 'salata.jpg',
       },
+      {
+        kategori: lang === 'en' ? 'Pastas' : lang === 'bg' ? 'Пасти' : 'Makarnalar',
+        resim: 'salata.jpg',
+      },
+      {
+        kategori: lang === 'en' ? 'Drinks' : lang === 'bg' ? 'Напитки' : 'İçecekler',
+        resim: 'salata.jpg',
+      },
+      {
+        kategori: lang === 'en' ? 'Desserts' : lang === 'bg' ? 'Десерти' : 'Tatlılar',
+        resim: 'salata.jpg',
+      }
     ];
-
   }
-  
+
   kategoriSec(kategori: any) {
     this.router.navigate(['/kategori', kategori.kategori.toLowerCase()]);
   }
 
-  urunSec(urun: any): void {
-    this.seciliUrun = urun;
+  toggleLanguageMenu() {
+    this.showLanguageMenu = !this.showLanguageMenu;
   }
 
+  changeLanguage(lang: string) {
+    this.langService.setLanguage(lang);
+    this.showLanguageMenu = false;
+    this.ngOnInit(); 
+  }
+
+  
 
 }

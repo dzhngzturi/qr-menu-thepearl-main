@@ -2,8 +2,8 @@
   background-image: url('/assets/images/menu-bg.jpeg');
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
   padding: 2rem;
+  overflow-y: auto;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -17,8 +17,11 @@
 
 .urunler-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr); /* 3 sütun */
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .urun-karti {
@@ -60,4 +63,17 @@
   font-size: 1.1rem;
   font-weight: bold;
   color: #28a745;
+}
+
+
+@media (max-width: 768px) {
+  .urunler-grid {
+    grid-template-columns: repeat(1, 1fr); /* küçük ekranda 1 ürün */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .urunler-grid {
+    grid-template-columns: repeat(2, 1fr); /* tablet görünümde 2 ürün */
+  }
 }
