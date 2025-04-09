@@ -1,0 +1,14 @@
+<div class="kategori-detay-wrapper">
+  <h2 class="kategori-baslik">{{ kategoriAdi | titlecase }}</h2>
+
+  <div class="urunler-grid">
+    <div class="urun-karti" *ngFor="let urun of urunler">
+      <img [src]="'assets/images/' + urun.resim" alt="{{ urun.isim }}" class="urun-resim" />
+      <div class="urun-bilgi">
+        <h3>{{ urun.isim }}</h3>
+        <p>{{ urun.aciklama }}</p>
+        <span class="fiyat">{{urun.fiyat }} лв</span>
+      </div>
+    </div>
+  </div>
+</div>

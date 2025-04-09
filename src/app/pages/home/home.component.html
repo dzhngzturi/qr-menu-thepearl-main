@@ -1,0 +1,60 @@
+
+    <!-- Bu içerikler SADECE anasayfada görünecek -->
+      <div class="logo-wrapper">
+        <a class="logo-title" (click)="goMenu()">Menu</a>
+      </div>
+  
+      <div class="well well-lg wish-list" id="wish_list_div" style="display:none;">
+        <div class="btn-group dropup" style="margin-left: 0;">
+          <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="true"
+            style="padding: 0;background-color: transparent;">
+            <img src="assets/images/icons/waiter.png" style="height: 44px;" />
+          </button>
+          <ul class="dropdown-menu pull-left" role="menu" id="wish_list"></ul>
+        </div>
+      </div>
+  
+      <div class="well well-lg pull-left survey" style="display:none;">
+        <ul class="list-inline blog-images" style="margin-left: 0;">
+          <li>
+            <a class="fancybox-button" href="/survey">
+              <img alt="" class="pull-left animated infinite pulse delay-1s" src="#" />
+              <span class="pull-right text-center survey-label" style="padding: 15px 2px 10px;">
+                Bizi değerlendirin
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="well well-lg social-media" id="social_accounts_div" style="display: none;">
+        <ul class="list-inline blog-images" id="social_accounts" style="margin-left: 0;"></ul>
+      </div>
+  
+      <div class="well well-lg whatsapp-line" id="whatsapp-line-phone" style="display: none;">
+        <ul class="list-inline blog-images" id="whatsapp_line" style="margin-left: 0;"></ul>
+      </div>
+  
+      <div class="well well-lg order-line" id="order-line-phone" style="display: none;">
+        <ul class="list-inline blog-images" id="order_line" style="margin-left: 0;"></ul>
+      </div>
+  
+      <div class="language-selector">
+        <button (click)="toggleLanguageMenu()" class="language-icon">
+          <img src="assets/images/icons/globe.png" alt="Languages" />
+        </button>
+  
+        <ul *ngIf="showLanguageMenu" class="language-menu">
+          <li (click)="languageChange('tr', 0)">
+            <img src="assets/flags/tr.png" /> Türkçe
+          </li>
+          <li (click)="languageChange('en', 0)">
+            <img src="assets/flags/en.png" /> English
+          </li>
+          <li (click)="languageChange('bg', 0)">
+            <img src="assets/flags/bg.png" /> български
+          </li>
+        </ul>
+      </div>
+  
+  

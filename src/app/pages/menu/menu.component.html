@@ -1,0 +1,12 @@
+<!-- menu.component.html -->
+<div class="menu-preview-wrapper">
+  <div class="kategori-grid">
+    <div 
+      class="kategori-karti" 
+      *ngFor="let kategori of menuVerileri"
+      (click)="kategoriSec(kategori)"
+      [style.backgroundImage]="'url(/assets/images/' + kategori.resim + ')'">
+      <div class="kategori-baslik">{{ kategori.kategori }}</div>
+    </div>
+  </div>
+</div>

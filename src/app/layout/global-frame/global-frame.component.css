@@ -1,0 +1,23 @@
+.global-frame {
+  position: relative;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.arka-plan {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.menu-baslik {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  z-index: 1;
+}
