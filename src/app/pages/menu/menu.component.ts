@@ -23,26 +23,32 @@ export class MenuComponent implements OnInit{
     this.lang = lang
     this.menuVerileri = [
       {
+        slug: 'salatalar',
         kategori: lang === 'en' ? 'Salads' : lang === 'bg' ? 'Салати' : 'Salatalar',
         resim: 'salata.jpg',
       },
       {
+        slug: 'baslangiclar',
         kategori: lang === 'en' ? 'Appetizers' : lang === 'bg' ? 'Предястия' : 'Başlangıçlar',
         resim: 'salata.jpg',
       },
       {
+        slug: 'burgerler',
         kategori: lang === 'en' ? 'Burgers' : lang === 'bg' ? 'Бургери' : 'Burgerler',
         resim: 'salata.jpg',
       },
       {
+        slug: 'makarnalar',
         kategori: lang === 'en' ? 'Pastas' : lang === 'bg' ? 'Пасти' : 'Makarnalar',
         resim: 'salata.jpg',
       },
       {
+        slug: 'icecekler',
         kategori: lang === 'en' ? 'Drinks' : lang === 'bg' ? 'Напитки' : 'İçecekler',
         resim: 'salata.jpg',
       },
       {
+        slug: 'tatlilar',
         kategori: lang === 'en' ? 'Desserts' : lang === 'bg' ? 'Десерти' : 'Tatlılar',
         resim: 'salata.jpg',
       }
@@ -50,7 +56,7 @@ export class MenuComponent implements OnInit{
   }
 
   kategoriSec(kategori: any) {
-    this.router.navigate(['/kategori', kategori.kategori.toLowerCase()]);
+    this.router.navigate(['/kategori', kategori.slug]);
   }
 
   toggleLanguageMenu() {

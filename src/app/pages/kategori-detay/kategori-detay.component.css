@@ -64,6 +64,45 @@
   font-weight: bold;
   color: #28a745;
 }
+.urunler-liste {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.urun-liste-satiri {
+  background-color: #ffffffcc;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.liste-satir-sol {
+  max-width: 80%;
+}
+
+.liste-satir-sol .isim {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.liste-satir-sol .aciklama {
+  color: #555;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.liste-satir-fiyat {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #28a745;
+  white-space: nowrap;
+}
+
 
 
 @media (max-width: 768px) {

@@ -9,7 +9,7 @@ interface Urun {
   isim: string;
   aciklama: string;
   fiyat: string;
-  resim: string;
+  resim?: string;
 }
 
 @Component({
@@ -22,17 +22,61 @@ interface Urun {
 
 export class KategoriDetayComponent implements OnInit {
   kategoriAdi: string = '';
-  urunler: Urun[] = [];
+  public gorunumTipi: 'kart' | 'liste' = 'kart';
+  public urunler: Urun[] = [];
 
   constructor(private route: ActivatedRoute, public langService: LanguageService) {}
 
   ngOnInit(): void {
-    this.kategoriAdi = this.route.snapshot.paramMap.get('id') || '';
+    const slug = this.route.snapshot.paramMap.get('id')?.toLowerCase() || '';
     const lang = this.langService.getLanguage();
+
+    const normalize = (value: string) =>
+      value.normalize("NFD").replace(/[^\w\s]/g, '').replace(/ç/g, 'c').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ö/g, 'o');
+
+    const normalizedSlug = normalize(slug);
+
+    const kategoriSlugMap: Record<string, Record<string, string>> = {
+      salatalar: { tr: 'Salatalar', en: 'Salads', bg: 'Салати' },
+      baslangiclar: { tr: 'Başlangıçlar', en: 'Appetizers', bg: 'Предястия' },
+      burgerler: { tr: 'Burgerler', en: 'Burgers', bg: 'Бургери' },
+      makarnalar: { tr: 'Makarnalar', en: 'Pastas', bg: 'Пасти' },
+      icecekler: { tr: 'Sıcak içecekler', en: 'Hot drinks', bg: 'Топли напитки' },
+      tatlilar: { tr: 'Tatlılar', en: 'Desserts', bg: 'Десерти' }
+    };
+
+    const kategoriKeyMap: Record<string, string> = {
+      salatalar: 'salads',
+      salads: 'salads',
+      салати: 'salads',
+      baslangiclar: 'appetizers',
+      appetizers: 'appetizers',
+      предястия: 'appetizers',
+      burgerler: 'burgers',
+      burgers: 'burgers',
+      бургери: 'burgers',
+      makarnalar: 'pastas',
+      pastas: 'pastas',
+      пасти: 'pastas',
+      icecekler: 'drinks',
+      drinks: 'drinks',
+      напитки: 'drinks',
+      tatlilar: 'desserts',
+      desserts: 'desserts',
+      десерти: 'desserts'
+    };
+    
+
+    this.kategoriAdi = kategoriSlugMap[normalizedSlug]?.[lang] || slug;
+    
+    const veriKey = kategoriKeyMap[slug] || kategoriKeyMap[normalizedSlug];
+    
+
   
-    const tumUrunler: { [lang: string]: { [key: string]: Urun[] } } = {
+    const tumUrunler: Record<string, Record<string, Urun[]>> = {
+
       tr: {
-        salatalar: [
+        salads: [
           { isim: 'Burrata', aciklama: 'karışık salata, çeri domates, avokado, burrata, baharatlar', fiyat: '14 lv', resim: 'salata.jpg' },
           { isim: 'Sezar', aciklama: 'marul, tavuk fileto, kiraz domates, kruton, parmesan, sos', fiyat: '12 lv', resim: 'salata.jpg' },
           { isim: 'Nitsa', aciklama: 'marul, tavuk fileto, kiraz domates, kruton, parmesan, sos', fiyat: '12 lv', resim: 'salata.jpg' },
@@ -43,7 +87,7 @@ export class KategoriDetayComponent implements OnInit {
           { isim: 'Шопска салата', aciklama: 'domates, salatalık, taze biber, peynir', fiyat: '10 lv', resim: 'salata.jpg' },
           { isim: 'Kaprese', aciklama: 'domates, mozarella, fesleğen pesto', fiyat: '11 lv', resim: 'salata.jpg' }
         ],
-        başlangıçlar: [
+        appetizers: [
           { isim: 'Yağda karides', aciklama: '180 gr.', fiyat: '16 lv', resim: 'shrimp.jpg' },
           { isim: 'Ekmekli kalamar', aciklama: '200 gr.', fiyat: '14 lv', resim: 'squid.jpg' },
           { isim: 'Tavuk nugget lı mısır gevreği', aciklama: '250 гр.', fiyat: '12.50 lv', resim: 'nuggets.jpg' },
@@ -62,9 +106,25 @@ export class KategoriDetayComponent implements OnInit {
           { isim: 'Patates kızartması', aciklama: '200 gr.', fiyat: '5.50 lv', resim: 'french-fries.jpg' },
           { isim: 'Patates kızartması + peynir', aciklama: '250 gr.', fiyat: '6.80 lv', resim: 'french-fries.jpg' },
           { isim: 'Soğan ve mantarlı tavuk ciğeri', aciklama: '250 gr.', fiyat: '9.50 lv', resim: 'livers.jpeg' },
-          
-        ]
+        ],
+        drinks:[
+          { isim: 'Kahve "Lavazza"', aciklama: '50 ml.', fiyat: '2.50 lv' },
+          { isim: 'Kahve "Lavazza" kafeinsiz', aciklama: '50 ml.', fiyat: '2.50 lv' },
+          { isim: '3 in 1', aciklama: '150 ml.', fiyat: '2.20 lv'},
+          { isim: 'Cafe Richard', aciklama: '150 ml.', fiyat: '2.20 lv'},
+          { isim: 'Ronnefeldt tea', aciklama: '150 ml.', fiyat: '2.20 lv'},
+          { isim: 'Milk with coffee', aciklama: '150 ml.', fiyat: '3 lv'},
+          { isim: 'Milk with cocoa', aciklama: '150 ml.', fiyat: '3 lv'},
+          { isim: 'Hot chocolate', aciklama: '150 ml.', fiyat: '3 lv'},
+          { isim: 'Cappuccino', aciklama: '150 ml.', fiyat: '3.50 lv'},
+          { isim: 'Frappe', aciklama: '200 ml.', fiyat: '3.20 lv'},
+          { isim: 'Viennese coffee', aciklama: '150 ml.', fiyat: '3.50 lv'},
+          { isim: 'Latte', aciklama: '400 ml.', fiyat: '6 lv'},
+          { isim: 'Milkshake', aciklama: '400 ml.', fiyat: '6 lv'},
+        ],
+
       },
+
       en: {
         salads: [
           { isim: 'Burrata', aciklama: 'salad mix, cherry tomatoes, avocado, burrata, spices', fiyat: '14 lv', resim: 'salata.jpg' },
@@ -96,11 +156,27 @@ export class KategoriDetayComponent implements OnInit {
           { isim: 'French fries', aciklama: '200 gr.', fiyat: '5.50 lv', resim: 'french-fries.jpg' },
           { isim: 'French fries + cheese', aciklama: '250 gr.', fiyat: '6.80 lv', resim: 'french-fries.jpg' },
           { isim: 'Chicken livers with onions and mushrooms', aciklama: '250 gr.', fiyat: '9.50 lv', resim: 'livers.jpeg' },
+        ],
+        drinks: [
+          { isim: 'Coffe "Lavazza"', aciklama: '50 ml.', fiyat: '2.50 lv' },
+          { isim: 'Coffe "Lavazza" decaffeinated', aciklama: '50 ml.', fiyat: '2.50 lv' },
+          { isim: '3 in 1', aciklama: '150 ml.', fiyat: '2.20 lv'},
+          { isim: 'Cafe Richard', aciklama: '150 ml.', fiyat: '2.20 lv'},
+          { isim: 'Ronnefeldt tea', aciklama: '150 ml.', fiyat: '2.20 lv'},
+          { isim: 'Milk with coffee', aciklama: '150 ml.', fiyat: '3 lv'},
+          { isim: 'Milk with cocoa', aciklama: '150 ml.', fiyat: '3 lv'},
+          { isim: 'Hot chocolate', aciklama: '150 ml.', fiyat: '3 lv'},
+          { isim: 'Cappuccino', aciklama: '150 ml.', fiyat: '3.50 lv'},
+          { isim: 'Frappe', aciklama: '200 ml.', fiyat: '3.20 lv'},
+          { isim: 'Viennese coffee', aciklama: '150 ml.', fiyat: '3.50 lv'},
+          { isim: 'Latte', aciklama: '400 ml.', fiyat: '6 lv'},
+          { isim: 'Milkshake', aciklama: '400 ml.', fiyat: '6 lv'},
+        ],
 
-        ]
       },
+
       bg: {
-        салати: [
+        salads: [
           { isim: 'Бурата', aciklama: 'микс салати, чери домати, авокадо, бурата, подправки', fiyat: '14 лв', resim: 'salata.jpg' },
           { isim: 'Цезар с пиле', aciklama: 'айсберг, пилешко филе, чери домати, крутони, пармезан, дресинг', fiyat: '12 лв', resim: 'salata.jpg' },
           { isim: 'Ница', aciklama: 'маруля, домати, краставици. риба тон, яйце. пресен лук, маслини', fiyat: '12 лв', resim: 'salata.jpg' },
@@ -111,7 +187,7 @@ export class KategoriDetayComponent implements OnInit {
           { isim: 'Шопска салата', aciklama: 'домати, краставици, пресен пипер, сирене', fiyat: '10 лв', resim: 'salata.jpg' },
           { isim: 'Капрезе', aciklama: 'домати, моцарела, босилково песто', fiyat: '10 лв', resim: 'salata.jpg' }
         ],
-        предястия: [
+        appetizers: [
           { isim: 'Скариди в масло', aciklama: '180 гр.', fiyat: '16 лв', resim: 'shrimp.jpg' },
           { isim: 'Панирани калмари', aciklama: '200 гр.', fiyat: '14 лв', resim: 'squid.jpg' },
           { isim: 'Пилешки хапки с корнфлейкс', aciklama: '250 гр.', fiyat: '12.50 лв', resim: 'nuggets.jpg' },
@@ -130,13 +206,32 @@ export class KategoriDetayComponent implements OnInit {
           { isim: 'Пържени картофи', aciklama: '200 гр.', fiyat: '5.50 лв', resim: 'french-fries.jpg' },
           { isim: 'Пържени картофи + сирене', aciklama: '250 гр.', fiyat: '6.80 лв', resim: 'french-fries.jpg' },
           { isim: 'Пилешки дробчета с лук и гъби', aciklama: '250 гр.', fiyat: '9.50 лв', resim: 'livers.jpeg' },
-            
-        ]
+        ],
+        drinks:[
+          { isim: 'Кафе "Лаваца"', aciklama: '50 мл.', fiyat: '2.50 лв'},
+          { isim: 'Кафе "Лаваца" без кофеин', aciklama: '50 мл.', fiyat: '2.50 лв'},
+          { isim: '3 в 1', aciklama: '150 мл.', fiyat: '2.20 лв'},
+          { isim: 'Кафе "Ришар"', aciklama: '150 мл.', fiyat: '2.20 лв'},
+          { isim: 'Чай "Ronnefeldt"', aciklama: '150 мл.', fiyat: '2.20 лв'},
+          { isim: 'Мляко с нес кафе', aciklama: '150 мл.', fiyat: '3 лв'},
+          { isim: 'Мляко с какао', aciklama: '150 мл.', fiyat: '3 лв'},
+          { isim: 'Горещ шоколад', aciklama: '150 мл.', fiyat: '3 лв'},
+          { isim: 'Капучино', aciklama: '150 мл.', fiyat: '3.50 лв'},
+          { isim: 'Фрапе', aciklama: '200 мл.', fiyat: '3.20 лв'},
+          { isim: 'Виенско кафе', aciklama: '150 мл.', fiyat: '3.50 лв'},
+          { isim: 'Лате', aciklama: '400 мл.', fiyat: '6 лв'},
+          { isim: 'Млечен шейк', aciklama: '400 мл.', fiyat: '6 лв'},
+        ],
+
       }
+
+
     };
-  
-    const slug = this.kategoriAdi.toLowerCase();
-    this.urunler = tumUrunler[lang]?.[slug] || [];
+    const listeKategorileri = ['Salatalar', 'Salads', 'Салати', 'icecekler', 'drinks', 'напитки',];
+    this.gorunumTipi = listeKategorileri.includes(normalizedSlug) ? 'liste' : 'kart';
+    this.urunler = veriKey ? tumUrunler[lang]?.[veriKey] || [] : [];
+    console.log('Görünüm tipi:', this.gorunumTipi);
+    console.log('Ürünler:', this.urunler);
   }
   
 }
