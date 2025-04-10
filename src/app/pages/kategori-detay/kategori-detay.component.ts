@@ -37,33 +37,23 @@ export class KategoriDetayComponent implements OnInit {
     const normalizedSlug = normalize(slug);
 
     const kategoriSlugMap: Record<string, Record<string, string>> = {
-      salatalar: { tr: 'Salatalar', en: 'Salads', bg: 'Салати' },
-      baslangiclar: { tr: 'Başlangıçlar', en: 'Appetizers', bg: 'Предястия' },
+      salatalar: { tr: 'Salatalar', en: 'Salads', bg: 'Салати' }, 
+      mezelervebruschettalar: { tr: 'Mezeler ve Bruschettalar', en: 'Appetizers & Bruschettas', bg: 'Разядки и брускети' },
+      makarnalar: { tr: 'Makarnalar', en: 'Risotto and pasta', bg: 'Ризото и паста' },
+      baslangiclar: { tr: 'Başlangıçlar', en: 'Starters', bg: 'Предястия' },
       burgerler: { tr: 'Burgerler', en: 'Burgers', bg: 'Бургери' },
-      makarnalar: { tr: 'Makarnalar', en: 'Pastas', bg: 'Пасти' },
       icecekler: { tr: 'Sıcak içecekler', en: 'Hot drinks', bg: 'Топли напитки' },
       tatlilar: { tr: 'Tatlılar', en: 'Desserts', bg: 'Десерти' }
     };
 
     const kategoriKeyMap: Record<string, string> = {
       salatalar: 'salads',
-      salads: 'salads',
-      салати: 'salads',
-      baslangiclar: 'appetizers',
-      appetizers: 'appetizers',
-      предястия: 'appetizers',
+      mezelervebruschettalar: 'appetizersandbruschettas',
+      makarnalar: 'risottovemakarna',
+      baslangiclar: 'starters',
       burgerler: 'burgers',
-      burgers: 'burgers',
-      бургери: 'burgers',
-      makarnalar: 'pastas',
-      pastas: 'pastas',
-      пасти: 'pastas',
       icecekler: 'drinks',
-      drinks: 'drinks',
-      напитки: 'drinks',
-      tatlilar: 'desserts',
-      desserts: 'desserts',
-      десерти: 'desserts'
+      tatlilar: 'desserts'
     };
     
 
@@ -87,7 +77,7 @@ export class KategoriDetayComponent implements OnInit {
           { isim: 'Шопска салата', aciklama: 'domates, salatalık, taze biber, peynir', fiyat: '10 lv', resim: 'salata.jpg' },
           { isim: 'Kaprese', aciklama: 'domates, mozarella, fesleğen pesto', fiyat: '11 lv', resim: 'salata.jpg' }
         ],
-        appetizers: [
+        starters: [
           { isim: 'Yağda karides', aciklama: '180 gr.', fiyat: '16 lv', resim: 'shrimp.jpg' },
           { isim: 'Ekmekli kalamar', aciklama: '200 gr.', fiyat: '14 lv', resim: 'squid.jpg' },
           { isim: 'Tavuk nugget lı mısır gevreği', aciklama: '250 гр.', fiyat: '12.50 lv', resim: 'nuggets.jpg' },
@@ -122,7 +112,20 @@ export class KategoriDetayComponent implements OnInit {
           { isim: 'Latte', aciklama: '400 ml.', fiyat: '6 lv'},
           { isim: 'Milkshake', aciklama: '400 ml.', fiyat: '6 lv'},
         ],
+        appetizersandbruschettas: [
+          { isim: 'Tarama havyarı', aciklama: '150 g.', fiyat: '7.50 lv'},
+          { isim: 'Közlenmiş Biberli katık', aciklama: '150 g.', fiyat: '6.50 lv'},
+          { isim: 'Dzaziki /variation/', aciklama: '150 g.', fiyat: '6.50 lv'},
+          { isim: 'Bruschetta', aciklama: 'krem peynir ve prosciutto, tarama, zeytin ezmesi 150g', fiyat: '7.50 lv'},
 
+        ],
+        risottovemakarna: [
+          { isim: 'Risotto Giorgino', aciklama:'arborio pirinci, tavuk, yeşil ve kırmızı biber, kabak, havuç, parmesan, baharatlar 370 gr.', fiyat: '14 lv'},
+          { isim: 'Yabani mantarlı risotto', aciklama:'arborio pirinci, porçini mantarı, mantar, parmesan, baharatlar 370 gr.', fiyat: '13 lv'},
+          { isim: 'Tagliatelle "Bolognese"', aciklama:'kıyma, soğan, havuç, domates sosu, parmesan, baharatlar 350 gr.', fiyat: '12 lv'},
+          { isim: 'Tagalli "Carbonara"', aciklama:'pastırma, yumurta, yemeklik krema, parmesan 350g.', fiyat: '11 lv'},
+          { isim: 'Tagliatelle "Arabiata"', aciklama:'soğan, sarımsak, acı biber, domates sosu, parmesan, baharatlar 350g.', fiyat: '10 lv'},
+          ],
       },
 
       en: {
@@ -137,7 +140,7 @@ export class KategoriDetayComponent implements OnInit {
           { isim: 'Shopska salad', aciklama: 'tomatoes, cucumbers, fresh pepper, cheese', fiyat: '10 lv', resim: 'salata.jpg' },
           { isim: 'Caprese', aciklama: 'tomatoes, mozzarella, basil pesto', fiyat: '11 lv', resim: 'salata.jpg' }
         ],
-        appetizers: [
+        starters: [
           { isim: 'Shrimp in oil', aciklama: '180 gr.', fiyat: '16 lv', resim: 'shrimp.jpg' },
           { isim: 'Breaded squid', aciklama: '200 gr.', fiyat: '14 lv', resim: 'squid.jpg' },
           { isim: 'Chicken nuggets with cornflakes', aciklama: '250 gr.', fiyat: '12.50 lv', resim: 'nuggets.jpg' },
@@ -172,9 +175,20 @@ export class KategoriDetayComponent implements OnInit {
           { isim: 'Latte', aciklama: '400 ml.', fiyat: '6 lv'},
           { isim: 'Milkshake', aciklama: '400 ml.', fiyat: '6 lv'},
         ],
-
+        appetizersandbruschettas: [
+          { isim: 'Tarama caviar', aciklama: '150 g.', fiyat: '7.50 lv'},
+          { isim: 'Roasted Pepper Cake', aciklama: '150 g.', fiyat: '6.50 lv'},
+          { isim: 'Dzaziki /variation/', aciklama: '150 g.', fiyat: '6.50 lv'},
+          { isim: 'Bruschetta', aciklama: 'cream cheese and prosciutto, tarama, olive paste 150g', fiyat: '7.50 lv'},
+        ],
+        risottoandpasta: [
+          { isim: 'Risotto Giorgio', aciklama: 'arborio rice, chicken, green and red pepper, zucchini, carrots, parmesan, spices 370 g.', fiyat: '14 lv'},
+          { isim: 'Risotto with wild mushrooms', aciklama: 'arborio rice, porcini mushrooms, mushrooms, parmesan, spices 370 g.', fiyat: '13 lv'},
+          { isim: 'Taliatele "Bolognese"', aciklama: 'minced beef, onion, carrots, tomato sauce, parmesan, spices 350 g.', fiyat: '12 lv'},
+          { isim: 'Taliatele "Carbonara"', aciklama: 'bacon, egg, cooking cream, parmesan 350 g.', fiyat: '11 lv'},
+          { isim: 'Taliatele "Arabiata"', aciklama: 'onion, garlic, chili peppers, tomato sauce, parmesan, spices 350g.', fiyat: '10 lv'},
+          ],
       },
-
       bg: {
         salads: [
           { isim: 'Бурата', aciklama: 'микс салати, чери домати, авокадо, бурата, подправки', fiyat: '14 лв', resim: 'salata.jpg' },
@@ -187,7 +201,7 @@ export class KategoriDetayComponent implements OnInit {
           { isim: 'Шопска салата', aciklama: 'домати, краставици, пресен пипер, сирене', fiyat: '10 лв', resim: 'salata.jpg' },
           { isim: 'Капрезе', aciklama: 'домати, моцарела, босилково песто', fiyat: '10 лв', resim: 'salata.jpg' }
         ],
-        appetizers: [
+        starters: [
           { isim: 'Скариди в масло', aciklama: '180 гр.', fiyat: '16 лв', resim: 'shrimp.jpg' },
           { isim: 'Панирани калмари', aciklama: '200 гр.', fiyat: '14 лв', resim: 'squid.jpg' },
           { isim: 'Пилешки хапки с корнфлейкс', aciklama: '250 гр.', fiyat: '12.50 лв', resim: 'nuggets.jpg' },
@@ -222,12 +236,25 @@ export class KategoriDetayComponent implements OnInit {
           { isim: 'Лате', aciklama: '400 мл.', fiyat: '6 лв'},
           { isim: 'Млечен шейк', aciklama: '400 мл.', fiyat: '6 лв'},
         ],
+        appetizersandbruschettas: [
+          { isim: 'Тарама хайвер', aciklama: '150 гр.', fiyat: '7.50 лв'},
+          { isim: 'Катък с печен пипер', aciklama: '150 гр.', fiyat: '6.50 лв'},
+          { isim: 'Дзадзики /вариация/', aciklama: '150 гр.', fiyat: '6.50 лв'},
+          { isim: 'Брускети', aciklama: 'крема сирене и прошуто, тарама, маслинова паста 150гр.', fiyat: '7.50 лв'},
+        ],
+        risottoandpasta: [
+          { isim: 'Ризото Джорджино', aciklama: 'ориз арборио, пилешко месо, зелен и червен пипер, тиквички, моркови, пармезан, подправки 370 гр.', fiyat: '14 лв'},
+          { isim: 'Ризото с горски гъби', aciklama: 'ориз арборио, манатарки, печурки, пармезан, подправки 370 гр.', fiyat: '13 лв'},
+          { isim: 'Талиателе "Болонезе"', aciklama: 'телешка кайма, лук, моркови, доматен сос, пармезан, подправки 350 гр.', fiyat: '12 лв'},
+          { isim: 'Талиателе "Карбонара"', aciklama: 'бекон, яйце, готварска сметана, пармезан 350гр.', fiyat: '11 лв'},
+          { isim: 'Талиателе "Арабиата"', aciklama: 'лук, чесън, люти чушки, доматен сос, пармезан, подправки 350гр.', fiyat: '10 лв'},
+        ],
 
       }
 
 
     };
-    const listeKategorileri = ['Salatalar', 'Salads', 'Салати', 'icecekler', 'drinks', 'напитки',];
+    const listeKategorileri = ['mezelervebruschettalar', 'icecekler', 'makarnalar'];
     this.gorunumTipi = listeKategorileri.includes(normalizedSlug) ? 'liste' : 'kart';
     this.urunler = veriKey ? tumUrunler[lang]?.[veriKey] || [] : [];
     console.log('Görünüm tipi:', this.gorunumTipi);

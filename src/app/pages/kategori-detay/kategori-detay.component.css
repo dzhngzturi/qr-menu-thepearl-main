@@ -1,11 +1,15 @@
 .kategori-detay-wrapper {
+  min-height: 100vh; /* Sayfa yüksekliğini kaplasın */
   background-image: url('/assets/images/menu-bg.jpeg');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   padding: 2rem;
-  overflow-y: auto;
   font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
 }
+
 
 .kategori-baslik {
   font-size: 2rem;
@@ -64,8 +68,10 @@
   font-weight: bold;
   color: #28a745;
 }
+
 .urunler-liste {
   max-width: 1000px;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;

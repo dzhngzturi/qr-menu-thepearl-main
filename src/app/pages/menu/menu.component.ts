@@ -28,8 +28,18 @@ export class MenuComponent implements OnInit{
         resim: 'salata.jpg',
       },
       {
+        slug: 'mezelervebruschettalar',
+        kategori: lang === 'en' ? 'Appetizers and bruschettas' : lang === 'bg' ? 'Разядки и брускети' : 'Mezeler ve bruschettalar',
+        resim: 'salata.jpg',
+      },
+      {
+        slug: 'makarnalar',
+        kategori: lang === 'en' ? 'Risotto and pasta' : lang === 'bg' ? 'Ризото и паста' : 'Risotto ve makarna',
+        resim: 'salata.jpg',
+      },
+      {
         slug: 'baslangiclar',
-        kategori: lang === 'en' ? 'Appetizers' : lang === 'bg' ? 'Предястия' : 'Başlangıçlar',
+        kategori: lang === 'en' ? 'Starters' : lang === 'bg' ? 'Предястия' : 'Başlangıçlar',
         resim: 'salata.jpg',
       },
       {
@@ -37,11 +47,7 @@ export class MenuComponent implements OnInit{
         kategori: lang === 'en' ? 'Burgers' : lang === 'bg' ? 'Бургери' : 'Burgerler',
         resim: 'salata.jpg',
       },
-      {
-        slug: 'makarnalar',
-        kategori: lang === 'en' ? 'Pastas' : lang === 'bg' ? 'Пасти' : 'Makarnalar',
-        resim: 'salata.jpg',
-      },
+     
       {
         slug: 'icecekler',
         kategori: lang === 'en' ? 'Drinks' : lang === 'bg' ? 'Напитки' : 'İçecekler',
