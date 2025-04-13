@@ -15,7 +15,6 @@ export class HomeComponent {
   constructor(private router:Router) { }
 
   goMenu() {
-    //window.location.href = 'https://qr.menufay.com/main';
     this.router.navigate(['/menu']);
   }
 

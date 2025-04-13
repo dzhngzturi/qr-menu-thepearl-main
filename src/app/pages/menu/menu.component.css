@@ -1,3 +1,41 @@
+.kategori-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85); /* hafif şeffaf siyah */
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  height: 80px;
+  max-height: 80px;
+  width: auto; /* Orantılı genişlik */
+  max-width: 200px; /* Gerekirse sınırla */
+  object-fit: contain;
+}
+
+.geri-butonu {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  left: 1rem;
+}
+
+.geri-butonu:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
 .menu-preview-wrapper {
   background-image: url('/assets/images/menu-bg.jpeg');
   background-size: cover;
@@ -84,3 +122,15 @@
   margin-right: 8px;
 }
 
+.language-button {
+  background-color: rgb(233, 233, 233);
+  padding: 6px;
+  border-radius: 50%;
+}
+
+.language-selector {
+  margin-top: 10px;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 1rem;
+}

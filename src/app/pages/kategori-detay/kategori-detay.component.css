@@ -1,3 +1,43 @@
+.kategori-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85); /* hafif şeffaf siyah */
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  height: 80px;
+  max-height: 80px;
+  width: auto; /* Orantılı genişlik */
+  max-width: 200px; /* Gerekirse sınırla */
+  object-fit: contain;
+}
+
+
+
+.geri-butonu {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  left: 1rem;
+}
+
+.geri-butonu:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
 .kategori-detay-wrapper {
   min-height: 100vh; /* Sayfa yüksekliğini kaplasın */
   background-image: url('/assets/images/menu-bg.jpeg');
@@ -52,15 +92,15 @@
 }
 
 .urun-bilgi h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
 .urun-bilgi p {
-  font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 0.75rem;
+  font-size: 2rem; /* Açıklama için biraz büyük */
+  color: #444;
+  margin-bottom: 0.5rem;
 }
 
 .fiyat {
@@ -68,6 +108,54 @@
   font-weight: bold;
   color: #28a745;
 }
+.urunler-liste {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.urun-liste-satiri {
+  background-color: #ffffffcc;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.liste-satir-sol {
+  max-width: 80%;
+}
+
+.liste-satir-sol .isim {
+  font-weight: 600;
+  font-size: 1.50rem!important;; /* Artırıldı */
+}
+
+.liste-satir-sol .aciklama {
+  color: #555;
+  font-size: 1.55rem!important;; /* Artırıldı */
+  margin-top: 0.35rem;
+}
+
+.liste-satir-fiyat {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #28a745;
+  white-space: nowrap;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 0.25rem;
+}
+
+.aciklama {
+  font-size: 1.6rem;
+  white-space: normal;
+  line-height: 1.3;
+}
+
 
 .urunler-liste {
   max-width: 1000px;
@@ -96,18 +184,6 @@
   font-size: 1.1rem;
 }
 
-.liste-satir-sol .aciklama {
-  color: #555;
-  font-size: 0.95rem;
-  margin-top: 0.25rem;
-}
-
-.liste-satir-fiyat {
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: #28a745;
-  white-space: nowrap;
-}
 
 
 

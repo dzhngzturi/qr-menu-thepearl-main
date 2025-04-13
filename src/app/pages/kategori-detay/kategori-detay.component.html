@@ -1,30 +1,33 @@
+<header class="kategori-header">
+  <button class="geri-butonu" (click)="goBack()">{{backLabel}}</button>
+  <img src="assets/images/icons/logo.png" alt="The Pearl Logo" class="logo" />
+</header>
 <div class="kategori-detay-wrapper">
   <h2 class="kategori-baslik">{{ kategoriAdi }}</h2>
 
-  <!-- Kart görünümü -->
-  <ng-container *ngIf="gorunumTipi === 'kart'">
-    <div class="urunler-grid">
-      <div class="urun-karti" *ngFor="let urun of urunler">
-        <img *ngIf="urun.resim" [src]="'assets/images/' + urun.resim" alt="{{ urun.isim }}" class="urun-resim" />
-        <div class="urun-bilgi">
-          <h3>{{ urun.isim }}</h3>
-          <p>{{ urun.aciklama }}</p>
-          <span class="fiyat">{{ urun.fiyat }}</span>
-        </div>
+ <!-- Kart görünümü -->
+<ng-container *ngIf="gorunumTipi === 'kart'">
+  <div class="urunler-grid">
+    <div class="urun-karti" *ngFor="let urun of urunler">
+      <img *ngIf="urun.resim" [src]="'assets/images/' + urun.resim" alt="{{ urun.isim }}" class="urun-resim" />
+      <div class="urun-bilgi">
+        <h3>{{ urun.isim }}</h3>
+        <div class="aciklama" *ngIf="urun.aciklama" [innerHTML]="urun.aciklama"></div>
+        <span class="fiyat" *ngIf="urun.fiyat">{{ urun.fiyat }}</span>
       </div>
     </div>
-  </ng-container>
+  </div>
+</ng-container>
 
-  <!-- Liste görünümü -->
-  <ng-container *ngIf="gorunumTipi === 'liste'">
-    <div class="urunler-liste">
-      <div class="urun-liste-satiri" *ngFor="let urun of urunler">
-        <div class="liste-satir-sol">
-          <div class="isim">{{ urun.isim }}</div>
-          <div class="aciklama">{{ urun.aciklama }}</div>
-        </div>
-        <div class="liste-satir-fiyat">{{ urun.fiyat }}</div>
+<!-- Liste görünümü -->
+<ng-container *ngIf="gorunumTipi === 'liste'">
+  <div class="urunler-liste">
+    <div class="urun-liste-satiri" *ngFor="let urun of urunler">
+      <div class="liste-satir-sol">
+        <div class="isim">{{ urun.isim }}</div>
+        <div class="aciklama" *ngIf="urun.aciklama" [innerHTML]="urun.aciklama"></div>
       </div>
+      <div class="liste-satir-fiyat">{{ urun.fiyat }}</div>
     </div>
-  </ng-container>
-</div>
+  </div>
+</ng-container>

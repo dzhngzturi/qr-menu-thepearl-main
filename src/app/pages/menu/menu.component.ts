@@ -18,7 +18,24 @@ export class MenuComponent implements OnInit{
 
   constructor(private router: Router, public langService: LanguageService) {}
 
+  get backLabel(): string {
+    const lang = this.langService.getLanguage();
+    switch (lang) {
+      case 'en': return 'Back';
+      case 'bg': return 'Назад';
+      default: return 'Geri';
+    }
+  }
+
+
+  goBack() {
+    history.back(); // veya this.router.navigate(['/menu']);
+  }
+
+
   ngOnInit(): void {
+
+    window.scrollTo(0, 0);
     const lang = this.langService.getLanguage();
     this.lang = lang
     this.menuVerileri = [
@@ -28,50 +45,95 @@ export class MenuComponent implements OnInit{
         resim: 'salata.jpg',
       },
       {
+        slug: 'baslangiclar',
+        kategori: lang === 'en' ? 'Starters' : lang === 'bg' ? 'Предястия' : 'Başlangıçlar',
+        resim: 'shrimp.jpg',
+      },
+      {
         slug: 'mezelervebruschettalar',
         kategori: lang === 'en' ? 'Appetizers and bruschettas' : lang === 'bg' ? 'Разядки и брускети' : 'Mezeler ve bruschettalar',
-        resim: 'salata.jpg',
-      },
-      {
-        slug: 'anayemekler',
-        kategori: lang === 'en' ? 'Main dishes' : lang === 'bg' ? 'Основни ястия' : 'Ana yemekler',
-        resim: 'salata.jpg',
-      },
-      {
-        slug: 'izgaralar',
-        kategori: lang === 'en' ? 'Grill' : lang === 'bg' ? 'Скара' : 'Izgaralar',
-        resim: 'salata.jpg',
-      },
-      {
-        slug: 'burgerlervesandvicler',
-        kategori: lang === 'en' ? 'Burgers and sandwiches' : lang === 'bg' ? 'Бургери и сандвичи' : 'Burgerler ve sandviçler',
-        resim: 'salata.jpg',
+        resim: 'mezeler.jpg',
       },
       {
         slug: 'makarnalar',
         kategori: lang === 'en' ? 'Risotto and pasta' : lang === 'bg' ? 'Ризото и паста' : 'Risotto ve makarna',
-        resim: 'salata.jpg',
+        resim: 'carbonara.jpg',
       },
       {
-        slug: 'baslangiclar',
-        kategori: lang === 'en' ? 'Starters' : lang === 'bg' ? 'Предястия' : 'Başlangıçlar',
-        resim: 'salata.jpg',
+        slug: 'anayemekler',
+        kategori: lang === 'en' ? 'Main dishes' : lang === 'bg' ? 'Основни ястия' : 'Ana yemekler',
+        resim: 'julien.png',
+      },
+      {
+        slug: 'izgaralar',
+        kategori: lang === 'en' ? 'Grill' : lang === 'bg' ? 'Скара' : 'Izgaralar',
+        resim: 'grill.jpg',
+      },
+      {
+        slug: 'burgerlervesandvicler',
+        kategori: lang === 'en' ? 'Burgers and sandwiches' : lang === 'bg' ? 'Бургери и сандвичи' : 'Burgerler ve sandviçler',
+        resim: 'burger.jpg',
       },
       {
         slug: 'pizzalar',
         kategori: lang === 'en' ? 'Pizzas' : lang === 'bg' ? 'Пици' : 'Pizzalar',
-        resim: 'salata.jpg',
+        resim: 'davinchi.png',
       },
       {
-        slug: 'icecekler',
-        kategori: lang === 'en' ? 'Drinks' : lang === 'bg' ? 'Напитки' : 'İçecekler',
-        resim: 'salata.jpg',
+        slug: 'garni̇turlervesoslar',
+        kategori: lang === 'en' ? 'Garnishes and sauces' : lang === 'bg' ? 'Гарнитури и сосове' : 'Garni̇türler ve soslar',
+        resim: 'sauces.jpg',
+      },
+      {
+        slug: 'aperatiflervekuruyemisler',
+        kategori: lang === 'en' ? 'Appetizers and nuts ' : lang === 'bg' ? 'Мезета и ядки' : 'Aperatifler ve kuruyemişler ',
+        resim: 'meze.jpg',
       },
       {
         slug: 'tatlilar',
         kategori: lang === 'en' ? 'Desserts' : lang === 'bg' ? 'Десерти' : 'Tatlılar',
-        resim: 'salata.jpg',
-      }
+        resim: 'sufle.png',
+      },
+      {
+        slug: 'icecekler',
+        kategori: lang === 'en' ? 'Hot Drinks' : lang === 'bg' ? 'Топли Напитки' : 'Sıcak İçecekler',
+        resim: 'kafe.jpg',
+      },
+      {
+        slug: 'alkolsuzicecekler',
+        kategori: lang === 'en' ? 'Soft drinks' : lang === 'bg' ? 'Безалкохолни напитки' : 'Alkolsüz içecekler',
+        resim: 'softdrinks.jpg',
+      },
+      {
+        slug: 'rakilar',
+        kategori: lang === 'en' ? 'Rakia' : lang === 'bg' ? 'Ракиа' : 'Rakılar',
+        resim: 'burgas63.jpg',
+      },
+      {
+        slug: 'viskiler',
+        kategori: lang === 'en' ? 'Whiskies' : lang === 'bg' ? 'Уиски' : 'Viskiler',
+        resim: 'jonniewalker.jpg',
+      },
+      {
+        slug: 'vodkalar',
+        kategori: lang === 'en' ? 'Vodkas' : lang === 'bg' ? 'Водки' : 'Vodkalar',
+        resim: 'belvedere.png',
+      },
+      {
+        slug: 'biralar',
+        kategori: lang === 'en' ? 'Beers' : lang === 'bg' ? 'Бира' : 'Biralar',
+        resim: 'beer.jpg',
+      },
+      {
+        slug: 'alkoholluicecekler',
+        kategori: lang === 'en' ? 'Alcohol' : lang === 'bg' ? 'Алкохол' : 'Alkollü içecekler',
+        resim: 'alcohol.jpg',
+      },
+      {
+        slug: 'saraplar',
+        kategori: lang === 'en' ? 'Wines' : lang === 'bg' ? 'Вина' : 'Şaraplar içecekler',
+        resim: 'sarap.jpg',
+      },
     ];
   }
 

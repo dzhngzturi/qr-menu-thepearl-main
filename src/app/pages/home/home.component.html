@@ -38,23 +38,3 @@
       <div class="well well-lg order-line" id="order-line-phone" style="display: none;">
         <ul class="list-inline blog-images" id="order_line" style="margin-left: 0;"></ul>
       </div>
-  
-      <div class="language-selector">
-        <button (click)="toggleLanguageMenu()" class="language-icon">
-          <img src="assets/images/icons/globe.png" alt="Languages" />
-        </button>
-  
-        <ul *ngIf="showLanguageMenu" class="language-menu">
-          <li (click)="languageChange('tr', 0)">
-            <img src="assets/flags/tr.png" /> Türkçe
-          </li>
-          <li (click)="languageChange('en', 0)">
-            <img src="assets/flags/en.png" /> English
-          </li>
-          <li (click)="languageChange('bg', 0)">
-            <img src="assets/flags/bg.png" /> български
-          </li>
-        </ul>
-      </div>
-  
-  
