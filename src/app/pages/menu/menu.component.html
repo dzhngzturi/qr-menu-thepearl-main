@@ -28,7 +28,7 @@
       class="kategori-karti" 
       *ngFor="let kategori of menuVerileri"
       (click)="kategoriSec(kategori)"
-      [style.backgroundImage]="'url(/assets/images/' + kategori.resim + ')'">
+      [style.backgroundImage]="'url(/assets/images/' + getWebpResim(kategori.resim) + ')'">
       <div class="kategori-baslik">{{ kategori.kategori }}</div>
     </div>
   </div>

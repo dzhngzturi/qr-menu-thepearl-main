@@ -6,7 +6,7 @@
     align-items: center;
     text-align: center;
     padding: 2rem;
-    background: url('/assets/images/menu-bg.jpeg') center center / cover no-repeat;
+    background: url('/assets/images/menu-bg.webp') center center / cover no-repeat;
     color: #ffffff;
     backdrop-filter: brightness(0.6); 
   }

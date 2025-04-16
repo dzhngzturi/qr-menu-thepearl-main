@@ -45,7 +45,12 @@ export class KategoriDetayComponent implements AfterViewInit {
     history.back(); // veya this.router.navigate(['/menu']);
   }
 
- 
+
+  getWebpResim(dosyaAdi: string): string {
+    return dosyaAdi ? dosyaAdi.replace(/\.(jpe?g|png)$/i, '.webp') : '';
+  }
+  
+  
 
   ngOnInit(): void {
 

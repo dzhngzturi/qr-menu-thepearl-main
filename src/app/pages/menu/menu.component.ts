@@ -33,6 +33,10 @@ export class MenuComponent implements OnInit{
   }
 
 
+  getWebpResim(dosyaAdi: string): string {
+    return dosyaAdi ? dosyaAdi.replace(/\.(jpe?g|png)$/i, '.webp') : '';
+  }
+  
   ngOnInit(): void {
 
     window.scrollTo(0, 0);

@@ -9,7 +9,8 @@
 <ng-container *ngIf="gorunumTipi === 'kart'">
   <div class="urunler-grid">
     <div class="urun-karti" *ngFor="let urun of urunler">
-      <img *ngIf="urun.resim" [src]="'assets/images/' + urun.resim" alt="{{ urun.isim }}" class="urun-resim" />
+      <img *ngIf="urun.resim" [src]="'assets/images/' + getWebpResim(urun.resim)" alt="{{ urun.isim }}" class="urun-resim" loading="lazy" />
+
       <div class="urun-bilgi">
         <h3>{{ urun.isim }}</h3>
         <div class="aciklama" *ngIf="urun.aciklama" [innerHTML]="urun.aciklama"></div>
