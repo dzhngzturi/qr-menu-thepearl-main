@@ -1,9 +1,7 @@
 import { CommonModule, Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GlobalFrameComponent } from '../../layout/global-frame/global-frame.component';
 import { LanguageService } from '../../language.service';
-import { FooterComponent } from "../../shared/footer/footer.component";
 
 interface Urun {
   isim: string;
@@ -15,12 +13,20 @@ interface Urun {
 @Component({
   selector: 'app-kategori-detay',
   standalone: true, // EKLENDİ
-  imports: [CommonModule, GlobalFrameComponent,], // GEREKLİDİR!
+  imports: [CommonModule], // GEREKLİDİR!
   templateUrl: './kategori-detay.component.html',
   styleUrls: ['./kategori-detay.component.css']
 })
 
-export class KategoriDetayComponent implements OnInit {
+export class KategoriDetayComponent implements AfterViewInit {
+  ngAfterViewInit(): void {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+  }
+  
   kategoriAdi: string = '';
   public gorunumTipi: 'kart' | 'liste' = 'kart';
   public urunler: Urun[] = [];
