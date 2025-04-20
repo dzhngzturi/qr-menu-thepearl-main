@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LanguageService {
-private currentLang: string = 'tr';
+private currentLang: string = 'bg';
 
 setLanguage(lang: string) {
   this.currentLang = lang;

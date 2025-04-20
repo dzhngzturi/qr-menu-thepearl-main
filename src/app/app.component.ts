@@ -4,7 +4,6 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { GlobalFrameComponent } from './layout/global-frame/global-frame.component';
 import { filter } from 'rxjs';
 import { LoaderComponent } from './shared/loader/loader.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -21,24 +20,32 @@ export class AppComponent implements OnInit {
   isLoading = false;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      window.scrollTo({ top: 0, behavior: 'auto' });
-    });
+      // Sayfa geçişlerinde scroll sıfırlama sadece belirli sayfalar için
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd)
+      ).subscribe((event: NavigationEnd) => {
+        const url = event.urlAfterRedirects;
+  
+        // Sadece ana sayfa ve /menu sayfasında en üste scroll
+        if (url === '/' || url === '/menu' || url === '/home') {
+          window.scrollTo({ top: 0, behavior: 'auto' });
+        }
+      });
+  
+      // Loading animation kontrolü
+      this.router.events.subscribe(event => {
+        if (event.constructor.name === 'NavigationStart') {
+          this.isLoading = true;
+        }
+        if ([
+          'NavigationEnd',
+          'NavigationCancel',
+          'NavigationError'
+        ].includes(event.constructor.name)) {
+          setTimeout(() => this.isLoading = false, 300);
+        }
+      });
 
-    this.router.events.subscribe(event => {
-      if (event.constructor.name === 'NavigationStart') {
-        this.isLoading = true;
-      }
-      if ([
-        'NavigationEnd',
-        'NavigationCancel',
-        'NavigationError'
-      ].includes(event.constructor.name)) {
-        setTimeout(() => this.isLoading = false, 300);
-      }
-    });
   }
 
   ngOnInit() {}
@@ -47,5 +54,6 @@ export class AppComponent implements OnInit {
     this.router.navigate(['/menu']);
   }
 
+  
 
 }

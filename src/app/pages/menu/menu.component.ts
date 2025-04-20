@@ -1,8 +1,7 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { CommonModule, ViewportScroller } from '@angular/common';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LanguageService } from '../../language.service';
-
 
 @Component({
   selector: 'app-menu',
@@ -11,35 +10,15 @@ import { LanguageService } from '../../language.service';
   styleUrls: ['./menu.component.css'],
   imports: [CommonModule]
 })
-export class MenuComponent implements OnInit{
-  lang: string = 'tr';
+export class MenuComponent implements OnInit, AfterViewInit {
+  lang: string = 'bg';
   menuVerileri: any[] = [];
   showLanguageMenu: boolean = false;
 
-  constructor(private router: Router, public langService: LanguageService) {}
+  constructor(private router: Router, public langService: LanguageService, private viewportScroller: ViewportScroller) {}
 
-  get backLabel(): string {
-    const lang = this.langService.getLanguage();
-    switch (lang) {
-      case 'en': return 'Back';
-      case 'bg': return 'Назад';
-      default: return 'Geri';
-    }
-  }
-
-
-  goBack() {
-    history.back(); // veya this.router.navigate(['/menu']);
-  }
-
-
-  getWebpResim(dosyaAdi: string): string {
-    return dosyaAdi ? dosyaAdi.replace(/\.(jpe?g|png)$/i, '.webp') : '';
-  }
-  
   ngOnInit(): void {
-
-    window.scrollTo(0, 0);
+   
     const lang = this.langService.getLanguage();
     this.lang = lang
     this.menuVerileri = [
@@ -138,13 +117,28 @@ export class MenuComponent implements OnInit{
         kategori: lang === 'en' ? 'Wines' : lang === 'bg' ? 'Вина' : 'Şaraplar içecekler',
         resim: 'sarap.jpg',
       },
-    ];
+    ];   
   }
+
+  ngAfterViewInit(): void {
+    const slug = localStorage.getItem('scrollToSlug');
+    if (slug) {
+      setTimeout(() => {
+        const el = document.getElementById(slug);
+        if (el) {
+          el.scrollIntoView({ behavior: 'auto', block: 'center' });
+        }
+        localStorage.removeItem('scrollToSlug'); // tekrar scroll yapmasın
+      }, 100);
+    }
+  }
+  
 
   kategoriSec(kategori: any) {
+    localStorage.setItem('scrollToSlug', kategori.slug); // hangi karta döneceğimizi hatırlıyoruz
     this.router.navigate(['/kategori', kategori.slug]);
   }
-
+  
   toggleLanguageMenu() {
     this.showLanguageMenu = !this.showLanguageMenu;
   }
@@ -152,9 +146,23 @@ export class MenuComponent implements OnInit{
   changeLanguage(lang: string) {
     this.langService.setLanguage(lang);
     this.showLanguageMenu = false;
-    this.ngOnInit(); 
+    this.ngOnInit();
   }
 
-  
+  get backLabel(): string {
+    const lang = this.langService.getLanguage();
+    switch (lang) {
+      case 'en': return 'Back';
+      case 'bg': return 'Назад';
+      default: return 'Geri';
+    }
+  }
 
+  goBack() {
+    history.back();
+  }
+
+  getWebpResim(dosyaAdi: string): string {
+    return dosyaAdi ? dosyaAdi.replace(/\.(jpe?g|png)$/i, '.webp') : '';
+  }
 }
