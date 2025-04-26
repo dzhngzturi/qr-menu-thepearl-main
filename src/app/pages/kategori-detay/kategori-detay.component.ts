@@ -820,8 +820,8 @@ export class KategoriDetayComponent implements AfterViewInit {
        'viskiler', 'vodkalar', 'biralar', 'alkoholluicecekler', 'saraplar'];
     this.gorunumTipi = listeKategorileri.includes(normalizedSlug) ? 'liste' : 'kart';
     this.urunler = veriKey ? tumUrunler[lang]?.[veriKey] || [] : [];
-    console.log('Görünüm tipi:', this.gorunumTipi);
-    console.log('Ürünler:', this.urunler);
+  // console.log('Görünüm tipi:', this.gorunumTipi);
+  // console.log('Ürünler:', this.urunler);
   }
   
 }
