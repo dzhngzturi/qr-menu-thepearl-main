@@ -17,12 +17,7 @@ export class HomeComponent {
   goMenu() {
     this.router.navigate(['/menu']);
   }
-
-  languageChange(lang: string, isDefault: number) {
-    localStorage.setItem('isDefaultLanguage', isDefault.toString());
-    window.location.href = `https://qr.menufay.com/${lang}`;
-  }
-
+  
   showLanguageMenu = false;
 
   toggleLanguageMenu() {

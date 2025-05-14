@@ -1,12 +1,6 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { appConfig } from './app/app.config';
-import { provideServerRendering } from '@angular/platform-server';
 
-bootstrapApplication(AppComponent, {
-  ...appConfig,
-  providers: [
-    ...appConfig.providers,
-    provideServerRendering()
-  ]
-});
+bootstrapApplication(AppComponent, appConfig)
+  .catch(err => console.error(err));

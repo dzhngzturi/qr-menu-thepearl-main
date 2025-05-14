@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
   imports: [RouterOutlet,HttpClientModule, GlobalFrameComponent, LoaderComponent,CommonModule]
 })
 export class AppComponent implements OnInit {
-  lang: string = 'en';
+  lang: string = 'bg';
   isMenuPage: boolean = false;
   showLanguageMenu = false;
   isLoading = false;
