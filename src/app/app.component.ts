@@ -5,33 +5,43 @@ import { GlobalFrameComponent } from './layout/global-frame/global-frame.compone
 import { filter } from 'rxjs';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { CommonModule } from '@angular/common';
+declare let gtag: Function;
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [RouterOutlet,HttpClientModule, GlobalFrameComponent, LoaderComponent,CommonModule]
+  imports: [RouterOutlet,HttpClientModule, GlobalFrameComponent, LoaderComponent,CommonModule],
+  
 })
+
 export class AppComponent implements OnInit {
   lang: string = 'bg';
   isMenuPage: boolean = false;
   showLanguageMenu = false;
   isLoading = false;
+  
 
   constructor(private http: HttpClient, private router: Router) {
       // Sayfa geçişlerinde scroll sıfırlama sadece belirli sayfalar için
       this.router.events.pipe(
-        filter(event => event instanceof NavigationEnd)
-      ).subscribe((event: NavigationEnd) => {
-        const url = event.urlAfterRedirects;
-  
-        // Sadece ana sayfa ve /menu sayfasında en üste scroll
-        if (url === '/' || url === '/menu' || url === '/home') {
-          window.scrollTo({ top: 0, behavior: 'auto' });
-        }
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      const url = event.urlAfterRedirects;
+
+      // sadece ana sayfa ve /menu sayfasında en üste scroll
+      if (url === '/' || url === '/menu' || url === '/home') {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      }
+
+      // Google Analytics sayfa görüntüleme takibi
+      gtag('config', 'G-TDGY5T0NTP', {
+        'page_path': url
       });
+    });
   
+      
       // Loading animation kontrolü
       this.router.events.subscribe(event => {
         if (event.constructor.name === 'NavigationStart') {
