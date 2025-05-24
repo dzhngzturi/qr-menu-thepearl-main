@@ -16,13 +16,20 @@
 
     <!-- Google Analytics -->
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDGY5T0NTP"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-TDGY5T0NTP');
+      if (location.hostname === 'qr-menu-thepearl-main.vercel.app') {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-TDGY5T0NTP';
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-TDGY5T0NTP');
+      }
     </script>
+
 
   </head>
   <body>
