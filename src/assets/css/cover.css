@@ -1,0 +1,155 @@
+.menu-bg {
+    margin: auto;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 150px;
+    /* background: rgb(194, 63, 68,0);*/
+}
+
+.menu-btn {
+    font-size: 32px;
+    border-radius: 50%;
+    height: 120px;
+    /*width: 136px;
+    background: rgb(194, 63, 68,0.7);*/
+    margin: 1px auto 0 ;
+    top: 0;
+    padding: 20px 0 0;
+    color: white;
+}
+
+.activities-btn {
+    font-size: 32px;
+    border-radius: 50%;
+    height: 80px;
+    /*width: 136px;
+    background: rgb(194, 63, 68,0.7);*/
+    margin: 1px auto 0 ;
+    top: 0;
+    padding: 20px 0 0;
+    color: white;
+}
+
+
+.menu-home-image {
+    margin: 1px auto 0;
+    max-height: 140px;
+    max-width: 240px;
+}
+
+.order-line {
+    position: absolute;
+    bottom: 64px;
+    right: 0;
+    padding: 8px 3px 6px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.whatsapp-line {
+    position: absolute;
+    bottom: 128px;
+    right: 0;
+    padding: 8px 3px 6px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.wish-list {
+    position: absolute;
+    bottom: 64px;
+    padding: 8px 3px 6px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+.wish-list > ul > li{
+    font-size:16px;border-bottom: 1px solid #ddd
+}
+
+.social-media {
+    position: absolute;
+    bottom: 0;
+    padding: 8px 3px 6px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.blog-images li img {
+    width: 44px;
+    height: 44px;
+    opacity: 1;
+    margin: 0 2px;
+}
+
+.social-media > ul > li {
+    margin: 0 !important;
+}
+
+.social-icons li > a {
+    width: 32px;
+    height: 32px;
+}
+
+.social-icons.social-icons-color > li > a {
+    opacity: 1;
+}
+
+.language {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.language-icon {
+    font-size: 28px !important;
+    color: #03214e !important;
+}
+
+.phone-icon {
+    font-size: 28px !important;
+    color: #03214e !important;
+}
+
+.survey-icon {
+    font-size: 32px !important;
+    color: #03214e !important;
+}
+
+.survey {
+    position: absolute;
+    top: 24px;
+    padding: 8px 3px 6px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.survey-label {
+    font-size: 18px;
+    color: #e00006;
+    padding: 15px 2px 10px;
+    font-weight: 600;
+   /* text-shadow: 1px 1px 1px #fbe4e4;*/
+}
+
+.well {
+    background-color: rgb(238, 238, 238, 0.7) !important;
+}
+
+body {
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important;
+    height: 100% !important;
+    overflow-y: hidden;
+}
+
+.blog-images li img:hover {
+    box-shadow: none;
+}

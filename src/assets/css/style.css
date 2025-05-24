@@ -1,0 +1,841 @@
+.main-container-stores {
+    padding-top: 30px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+
+}
+
+.full-screen-background {
+    height: auto;
+    min-height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -999;
+    top: 0;
+    left: 0;
+}
+
+.full-screen-background-kiosk {
+    height: auto;
+    min-height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -999;
+    top: 0;
+    left: 0;
+}
+
+.back-btn {
+    padding: 10px 10px 10px 6px !important;
+    font-size: 16px !important;
+    margin-left: -10px;
+}
+
+.shopping-cart-btn {
+    margin-right: -5px;
+    display: inline-block;
+    position: relative;
+}
+
+.order-list-btn {
+    margin-right: 4px;
+    position: relative;
+    display: none;
+}
+
+.survey-back-btn {
+    padding: 10px 10px 10px 6px !important;
+    font-size: 16px !important;
+}
+
+.main-icon {
+    font-size: 16px !important;
+}
+
+.brand-image {
+    height: 60px;
+}
+
+.add-shopping-cart-btn {
+    position: absolute !important;
+    top: 5px;
+    right: -8px;
+    display: inline-block;
+}
+
+.shopping-cart-product-image {
+    height: 40px;
+    width: 40px;
+    border-radius: 4px;
+}
+
+.shopping-cart-total-price {
+    font-size: 18px;
+}
+
+.product-view {
+    background: #fff;
+    padding: 5px 0px 0px 0px;
+    margin: 0px -5px 20px -5px;
+    display: inline-block;
+    width: 100%;
+    min-height: 20px;
+    border: 1px solid #E6E9ED;
+    border-radius: 4px;
+
+}
+
+.product-info {
+    padding-top: 10px;
+}
+
+.product-category-path {
+    font-size: 24px;
+    line-height: 26px;
+    padding: 8px 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 3px;
+    background: rgba(0, 0, 0, 0.72);
+    border-bottom-right-radius: 7px;
+}
+
+.product-video-path {
+    font-size: 24px;
+    line-height: 26px;
+    padding: 8px 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 3px;
+    background: rgba(0, 0, 0, 0.72);
+    border-top-right-radius: 7px;
+}
+
+.product-video-player {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.72);
+}
+.cover-video-player {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.72);
+}
+
+.video-player {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+.video-player-close {
+    right: 0;
+    position: absolute;
+    color: white;
+    top: 0;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.product-ratings {
+    font-size: 18px;
+    line-height: 20px;
+    padding: 5px 8px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.72);
+    max-width: 400px;
+    border: 1px solid #E6E9ED;
+}
+
+.product-title {
+    padding: 8px 0px 5px 12px;
+    margin-bottom: 5px;
+    font-size: 32px;
+    border-left: 1px solid #E6E9ED;
+}
+
+.product-sub-title {
+    padding: 8px 0px 5px 12px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    border-left: 1px solid #E6E9ED;
+}
+
+.product-brand-image {
+    border: 1px solid #E6E9ED;
+    border-radius: 5px;
+    margin-left: 12px;
+    height: 45px;
+    width: 150px;
+}
+
+.product-info-form {
+    display: block;
+    width: 100%;
+    height: 36px;
+    padding: 2px 5px;
+    font-size: 20px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    max-width: 120px;
+    margin-bottom: 6px
+}
+
+.product-nicotine {
+    padding: 4px 0px 0px 5px;
+    font-size: 24px;
+}
+
+.product-size {
+    padding: 4px 0px 0px 5px;
+    font-size: 24px;
+}
+
+.product-regular {
+    float: left;
+    width: 50%;
+    padding: 4px 0px 0px 5px;
+    font-size: 24px;
+    margin: 12px 0px 15px 0px;
+}
+
+.product-sale {
+    float: left;
+    width: 50%;
+    padding: 4px 0px 0px 5px;
+    font-size: 24px;
+    margin: 12px 0px 15px 0px;
+}
+
+.product-regular-price {
+    float: right;
+    width: 50%;
+    padding: 4px 0px 0px 5px;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 12px 0px 15px 0px;
+}
+
+.product-sale-price {
+    float: right;
+    width: 50%;
+    padding: 4px 0px 0px 5px;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 12px 0px 15px 0px;
+}
+
+.add-shopping-cart {
+    margin-left: 5px;
+    margin-top: 12px;
+    font-size: 200%;
+}
+
+.product-description {
+    background: #F2F5F7;
+    text-align: center;
+    border-bottom: 1px solid #E6E9ED;
+    color: #2A3F54;
+    line-height: 20px;
+    font-size: 16px;
+    padding: 10px 6px;
+    margin-top: 8px;
+}
+
+.store-info {
+    padding: 5px 0px 5px 0px;
+    font-size: 14px;
+}
+
+.product-view .left {
+    width: 50%;
+    float: left;
+    padding-left: 5px;
+
+}
+
+.product-view .right {
+    width: 50%;
+    float: right;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #2A3F54;
+}
+
+.product-image {
+    border: 1px solid #E6E9ED;
+    padding: 1px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.store-view .bottom {
+    margin-top: 5px;
+    background: #7a7a78;
+    padding: 5px 0px 5px 5px;
+    border-top: 1px solid #E6E9ED;
+}
+
+.store-view .bottom a {
+    color: black;
+}
+
+.ratings {
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+    text-align: left;
+    width: 100%;
+}
+
+.deal-container {
+    padding: 10px 15px 10px 0px;
+}
+
+.deal-image {
+    width: 100%;
+    height: 160px;
+    display: block;
+    border-radius: 2px;
+}
+
+/*------------------------------------------------------
+	RESPONSIVE STYLES
+--------------------------------------------------------*/
+@media (max-width: 1024px) {
+    .main-container-stores {
+        max-width: 1000px;
+    }
+
+    .product-info {
+        padding-top: 10px;
+    }
+
+    .brand-image {
+        height: 60px;
+    }
+
+    .shopping-cart-product-image {
+        height: 40px;
+        width: 40px;
+    }
+
+    .shopping-cart-total-price {
+        font-size: 18px;
+    }
+
+    .product-category-path {
+        font-size: 24px;
+        line-height: 26px;
+        padding: 8px 10px;
+        border-bottom-right-radius: 7px;
+    }
+    .product-video-path {
+        font-size: 24px;
+        line-height: 26px;
+        padding: 8px 10px;
+        border-top-right-radius: 7px;
+    }
+    .product-ratings {
+        font-size: 16px;
+        line-height: 18px;
+        padding: 5px 7px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    .product-title {
+        padding: 8px 0px 5px 12px;
+        margin-bottom: 8px;
+        font-size: 32px;
+    }
+
+    .product-sub-title {
+        padding: 8px 0px 5px 12px;
+        margin-bottom: 8px;
+        font-size: 20px;
+    }
+
+    .product-brand-image {
+        border: 1px solid #E6E9ED;
+        border-radius: 5px;
+        margin-left: 12px;
+        height: 45px;
+        width: 150px;
+    }
+
+    .product-info-form {
+        height: 36px;
+        padding: 2px 5px;
+        font-size: 20px;
+    }
+
+    .product-nicotine {
+        font-size: 24px;
+    }
+
+    .product-size {
+        font-size: 24px;
+    }
+
+    .product-regular {
+        padding: 4px 0px 0px 5px;
+        font-size: 24px;
+        margin: 12px 0px 15px 0px;
+    }
+
+    .product-sale {
+        padding: 4px 0px 0px 5px;
+        font-size: 24px;
+        margin: 12px 0px 25px 0px;
+    }
+
+    .product-regular-price {
+        padding: 4px 0px 0px 5px;
+        font-size: 28px;
+        font-weight: 700;
+        margin: 12px 0px 15px 0px;
+    }
+
+    .product-sale-price {
+        padding: 4px 0px 0px 5px;
+        font-size: 28px;
+        font-weight: 700;
+        margin: 12px 0px 15px 0px;
+    }
+
+    .add-shopping-cart {
+        margin-top: 12px;
+        font-size: 200%;
+    }
+
+    .product-description {
+        line-height: 20px;
+        font-size: 16px;
+        padding: 10px 6px;
+        margin-top: 8px;
+    }
+
+    .deal-container {
+        padding: 10px 15px 10px 0px;
+    }
+
+    .deal-image {
+        width: 100%;
+        height: 160px;
+        display: block;
+        border-radius: 2px;
+    }
+}
+
+@media (max-width: 991px) {
+    .main-container-stores {
+        max-width: 760px;
+    }
+
+    .product-info {
+        padding-top: 5px;
+    }
+
+    .brand-image {
+        height: 50px;
+    }
+
+    .shopping-cart-product-image {
+        height: 35px;
+        width: 35px;
+    }
+
+    .shopping-cart-total-price {
+        font-size: 16px;
+    }
+
+    .product-category-path {
+        font-size: 20px;
+        line-height: 24px;
+        padding: 6px 8px;
+        border-bottom-right-radius: 7px;
+    }
+    .product-video-path {
+        font-size: 20px;
+        line-height: 24px;
+        padding: 6px 8px;
+        border-top-right-radius: 7px;
+    }
+    .product-ratings {
+        font-size: 15px;
+        line-height: 16px;
+        padding: 4px 7px;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+    .product-title {
+        padding: 5px 0px 5px 10px;
+        margin-bottom: 5px;
+        font-size: 24px;
+    }
+
+    .product-sub-title {
+        padding: 5px 0px 5px 10px;
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+
+    .product-brand-image {
+        border: 1px solid #E6E9ED;
+        border-radius: 3px;
+        margin-left: 10px;
+        height: 35px;
+        width: 100px;
+    }
+
+    .product-info-form {
+        height: 28px;
+        padding: 1px 5px;
+        font-size: 16px;
+    }
+
+    .product-nicotine {
+        font-size: 18px;
+    }
+
+    .product-size {
+        font-size: 18px;
+    }
+
+    .product-regular {
+        padding: 0px 0px 0px 5px;
+        font-size: 18px;
+        margin: 7px 0px 5px 0px;
+    }
+
+    .product-sale {
+        padding: 0px 0px 0px 5px;
+        font-size: 18px;
+        margin: 7px 0px 5px 0px;
+    }
+
+    .product-regular-price {
+        padding: 1px 0px 0px 5px;
+        font-size: 22px;
+        font-weight: 600;
+        margin: 7px 0px 5px 0px;
+    }
+
+    .product-sale-price {
+        padding: 1px 0px 0px 5px;
+        font-size: 22px;
+        font-weight: 600;
+        margin: 7px 0px 15px 0px;
+    }
+
+    .add-shopping-cart {
+        margin-top: 8px;
+        font-size: 150%;
+    }
+
+    .product-description {
+        line-height: 18px;
+        font-size: 15px;
+        padding: 8px 5px;
+        margin-top: 5px;
+    }
+
+    .deal-container {
+        padding: 7px 10px 8px 0px;
+    }
+
+    .deal-image {
+        width: 100%;
+        height: 120px;
+        display: block;
+        border-radius: 2px;
+    }
+}
+
+@media (max-width: 767px) {
+    .main-container-stores {
+        max-width: 420px;
+    }
+
+    .product-info {
+        padding-top: 3px;
+    }
+
+    .brand-image {
+        height: 32px;
+    }
+
+    .shopping-cart-product-image {
+        height: 30px;
+        width: 30px;
+    }
+
+    .shopping-cart-total-price {
+        font-size: 14px;
+    }
+
+    .product-category-path {
+        font-size: 16px;
+        line-height: 18px;
+        padding: 4px 6px;
+        border-bottom-right-radius: 4px;
+    }
+    .product-video-path {
+        font-size: 16px;
+        line-height: 18px;
+        padding: 4px 6px;
+        border-top-right-radius: 4px;
+    }
+    .product-ratings {
+        font-size: 12px;
+        line-height: 13px;
+        padding: 3px 5px;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+
+    .product-title {
+        padding: 3px 0px 3px 7px;
+        margin-bottom: 2px;
+        font-size: 15px;
+    }
+
+    .product-sub-title {
+        padding: 3px 0px 3px 7px;
+        margin-bottom: 2px;
+        font-size: 12px;
+    }
+
+    .product-brand-image {
+        border: 1px solid #E6E9ED;
+        border-radius: 2px;
+        margin-left: 5px;
+        height: 25px;
+        width: 60px;
+    }
+
+    .product-info-form {
+        height: 20px;
+        padding: 0px 5px;
+        font-size: 12px;
+    }
+
+    .product-nicotine {
+        padding: 1px 0px 0px 5px;
+        font-size: 12px;
+    }
+
+    .product-size {
+        padding: 1px 0px 0px 5px;
+        font-size: 12px;
+    }
+
+    .product-regular {
+        padding: 0px 0px 0px 5px;
+        font-size: 11px;
+        margin: 0px 0px 5px 0px;
+    }
+
+    .product-sale {
+        padding: 0px 0px 0px 5px;
+        font-size: 11px;
+        margin: 0px 0px 5px 0px;
+    }
+
+    .product-regular-price {
+        padding: 1px 0px 0px 5px;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0px 0px 5px 0px;
+    }
+
+    .product-sale-price {
+        padding: 1px 0px 0px 5px;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0px 0px 5px 0px;
+    }
+
+    .add-shopping-cart {
+        margin-top: 2px;
+        font-size: 100%;
+    }
+
+    .product-description {
+        line-height: 16px;
+        font-size: 12px;
+        padding: 6px 5px;
+        margin-top: 2px;
+    }
+
+    .deal-container {
+        padding: 5px 5px 5px 0px;
+    }
+
+    .deal-image {
+        width: 100%;
+        height: 80px;
+        display: block;
+        border-radius: 2px;
+    }
+}
+
+@media (max-width: 479px) {
+    .main-container-stores {
+        max-width: 360px;
+    }
+
+    .product-info {
+        padding-top: 2px;
+    }
+
+    .brand-image {
+        height: 32px;
+    }
+
+    .shopping-cart-product-image {
+        height: 25px;
+        width: 25px;
+    }
+
+    .shopping-cart-total-price {
+        font-size: 12px;
+    }
+
+    .product-category-path {
+        font-size: 16px;
+        line-height: 18px;
+        padding: 4px 6px;
+        border-bottom-right-radius: 3px;
+    }
+    .product-video-path {
+        font-size: 16px;
+        line-height: 18px;
+        padding: 4px 6px;
+        border-top-right-radius: 3px;
+    }
+    .product-ratings {
+        font-size: 9px;
+        line-height: 10px;
+        padding: 2px 5px;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+
+    .product-title {
+        padding: 0px 0px 0px 5px;
+        margin-bottom: 1px;
+        font-size: 12px;
+    }
+
+    .product-sub-title {
+        padding: 0px 0px 0px 5px;
+        margin-bottom: 2px;
+        font-size: 8px;
+    }
+
+    .product-brand-image {
+        border: 1px solid #E6E9ED;
+        border-radius: 2px;
+        margin-left: 5px;
+        height: 20px;
+        width: 50px;
+    }
+
+    .product-info-form {
+        height: 18px;
+        padding: 0px 1px;
+        font-size: 8px;
+    }
+
+    .product-nicotine {
+        padding: 0px 0px 0px 5px;
+        font-size: 9px;
+    }
+
+    .product-size {
+        padding: 0px 0px 0px 5px;
+        font-size: 9px;
+    }
+
+    .product-regular {
+        padding: 0px 0px 0px 5px;
+        font-size: 8px;
+        margin: -5px 0px 5px 0px;
+    }
+
+    .product-sale {
+        padding: 0px 0px 0px 5px;
+        font-size: 8px;
+        margin: -5px 0px 5px 0px;
+    }
+
+    .product-regular-price {
+        padding: 1px 0px 0px 5px;
+        font-size: 12px;
+        font-weight: 500;
+        margin: -5px 0px 5px 0px;
+    }
+
+    .product-sale-price {
+        padding: 1px 0px 0px 5px;
+        font-size: 12px;
+        font-weight: 500;
+        margin: -5px 0px 5px 0px;
+    }
+
+    .add-shopping-cart {
+        margin-top: 0px;
+        font-size: 80%;
+    }
+
+    .product-description {
+        line-height: 10px;
+        font-size: 9px;
+        padding: 2px 5px;
+        margin-top: 0px;
+    }
+
+    .deal-container {
+        padding: 2px 0px 3px 0px;
+    }
+
+    .deal-image {
+        width: 100%;
+        height: 60px;
+        display: block;
+        border-radius: 2px;
+    }
+
+}
